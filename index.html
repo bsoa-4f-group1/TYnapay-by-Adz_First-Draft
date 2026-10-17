@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tynapay By Adz - breads, pastries, coffee, and beverages made with so much love.">
+<title>Tynapay By Adz | Made With So Much Love</title>
+
+<style>
+:root {
+    --purple-50: #fbf8ff;
+    --purple-100: #f1e8ff;
+    --purple-200: #e4d2ff;
+    --purple-300: #c9a9f2;
+    --purple-500: #9270c7;
+    --purple-700: #60458e;
+    --purple-900: #35264e;
+    --ink: #342b3d;
+    --muted: #71677c;
+    --white: #ffffff;
+    --shadow: 0 14px 35px rgba(74,48,105,.10);
+    --radius: 22px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--purple-50);
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251,248,255,.97);
+    border-bottom: 1px solid #e4d2ff;
+    box-shadow: 0 4px 18px rgba(74,48,105,.05);
+}
+
+.nav-wrap {
+    max-width: 1200px;
+    margin: auto;
+    padding: 13px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    min-width: 180px;
+}
+
+.brand-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-weight: 900;
+    background: linear-gradient(135deg,var(--purple-500),var(--purple-700));
+}
+
+.brand-name {
+    color: var(--purple-900);
+    font-size: .98rem;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.brand-tag {
+    display: block;
+    font-size: .68rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 999px;
+    font-size: .84rem;
+    font-weight: 700;
+    color: #5d526a;
+}
+
+nav a:hover,
+nav a:focus {
+    background: var(--purple-100);
+    color: var(--purple-700);
+}
+
+nav .nav-cta {
+    background: var(--purple-700);
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    border-radius: 12px;
+    padding: 9px 12px;
+    background: var(--purple-100);
+    color: var(--purple-900);
+    cursor: pointer;
+}
+
+.hero {
+    background:
+        radial-gradient(circle at 85% 15%,#e3d0ff 0,transparent 32%),
+        linear-gradient(135deg,#f5edff,#eee2ff 55%,#fdfaff);
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 75px 22px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.eyebrow, .kicker {
+    color: var(--purple-700);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-size: .77rem;
+    font-weight: 850;
+}
+
+.eyebrow {
+    display: inline-block;
+    border: 1px solid #d9c4f5;
+    border-radius: 999px;
+    padding: 7px 12px;
+    background: #ffffffaa;
+}
+
+h1 {
+    font-size: clamp(2.7rem,6vw,5rem);
+    line-height: 1.02;
+    letter-spacing: -.05em;
+    margin: 20px 0;
+    color: var(--purple-900);
+}
+
+h1 span {
+    color: var(--purple-500);
+}
+
+.hero-copy {
+    max-width: 590px;
+    font-size: 1.12rem;
+    color: #62566f;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 18px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--purple-700);
+    color: white;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--purple-700);
+    border-color: var(--purple-200);
+}
+
+.hero-art {
+    background: linear-gradient(145deg,#d5baf7,#f4eaff);
+    min-height: 330px;
+    border-radius: 48% 52% 43% 57%;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow);
+}
+
+.hero-art span {
+    font-size: clamp(7rem,15vw,11rem);
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.social-links a {
+    color: var(--purple-700);
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 72px 22px;
+}
+
+.section-head {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+h2 {
+    color: var(--purple-900);
+    font-size: clamp(1.9rem,4vw,2.8rem);
+    line-height: 1.15;
+    margin: 10px 0;
+}
+
+.section-head p {
+    color: var(--muted);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 18px;
+}
+
+.gallery figure, .location-gallery figure {
+    margin: 0;
+    background: white;
+    border: 1px solid #eee5fb;
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.gallery img {
+    width: 100%;
+    height: 260px;
+    display: block;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+figcaption {
+    padding: 10px 4px 3px;
+    font-weight: 750;
+    color: var(--purple-900);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+.about-card, .story-card, .info-card, .form-card, .value-card {
+    background: white;
+    border: 1px solid #eee5fb;
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+.about-card {
+    background: linear-gradient(145deg,#e8d8ff,#faf6ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.big-quote {
+    font-size: 1.65rem;
+    line-height: 1.3;
+    font-weight: 850;
+    color: var(--purple-900);
+}
+
+.story-card h3, .info-card h3, .value-card h3 {
+    color: var(--purple-700);
+    margin-top: 0;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pill {
+    background: var(--purple-100);
+    color: var(--purple-700);
+    border-radius: 999px;
+    padding: 6px 11px;
+    font-size: .82rem;
+    font-weight: 750;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.menu-section {
+    background: #f3ebff;
+}
+
+.menu-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 72px 22px;
+}
+
+.menu-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0 30px;
+}
+
+.tab {
+    border: 1px solid #d8c5f4;
+    background: white;
+    color: var(--purple-700);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.tab.active, .tab:hover {
+    background: var(--purple-700);
+    border-color: var(--purple-700);
+    color: white;
+}
+
+.menu-panel {
+    display: none;
+}
+
+.menu-panel.active {
+    display: block;
+    animation: fadeIn .2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: .3; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.menu-category-title {
+    color: var(--purple-900);
+    margin: 0 0 15px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px;
+}
+
+.menu-item {
+    background: white;
+    border: 1px solid #e9def8;
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+}
+
+.menu-item h4 {
+    margin: 0;
+    color: var(--ink);
+}
+
+.menu-item p {
+    margin: 4px 0 0;
+    font-size: .84rem;
+    color: var(--muted);
+}
+
+.price {
+    color: var(--purple-700);
+    font-weight: 850;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.price small {
+    display: block;
+    color: var(--muted);
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+.menu-note {
+    text-align: center;
+    color: var(--muted);
+    font-size: .85rem;
+    margin-top: 20px;
+}
+
+.location-gallery {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.location-gallery img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.location-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 18px;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 18px;
+}
+
+.notice {
+    background: #fff5dd;
+    border-left: 4px solid #d6a95e;
+    padding: 14px 17px;
+    border-radius: 9px;
+    color: #66512d;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin: 13px 0 6px;
+    color: var(--purple-900);
+    font-weight: 750;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d7c8e2;
+    border-radius: 10px;
+    background: white;
+    color: var(--ink);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-weight: 500;
+}
+
+.checkbox-label input {
+    margin-top: 7px;
+}
+
+.privacy {
+    font-size: .86rem;
+    color: var(--muted);
+}
+
+footer {
+    background: #eee2fb;
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--purple-900);
+}
+
+footer a {
+    color: var(--purple-700);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .nav-wrap {
+        flex-wrap: wrap;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        justify-content: flex-start;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 10px 12px;
+    }
+
+    .hero-inner, .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-art {
+        min-height: 260px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .section, .menu-inner {
+        padding: 48px 16px;
+    }
+
+    .hero-inner {
+        padding: 48px 16px;
+    }
+
+    .gallery, .location-gallery, .location-grid,
+    .news-grid, .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 240px;
+    }
+
+    .location-gallery img {
+        height: 230px;
+    }
+
+    .menu-item {
+        align-items: flex-start;
+    }
+
+    .menu-item .price {
+        white-space: normal;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="nav-wrap">
+        <a class="brand" href="#home" aria-label="Tynapay By Adz Home">
+            <span class="brand-mark">TY</span>
+            <span class="brand-name">
+                TYNAPAY BY ADZ
+                <span class="brand-tag">Made with so much love ♡</span>
+            </span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-expanded="false" aria-controls="mainNav">
+            ☰ Menu
+        </button>
+
+        <nav id="mainNav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#location">Location</a>
+            <a href="#news">News</a>
+            <a class="nav-cta" href="#franchise">Franchise Now</a>
+            <a href="#feedback">Feedback</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div class="hero-inner">
+        <div>
+            <span class="eyebrow">♡ Family's favorite online bakeshop</span>
+
+            <h1>TYNAPAY<br><span>BY ADZ</span></h1>
+
+            <p class="hero-copy">
+                Family's favorite online bakeshop offering one of the
+                best and ULTRA-SOFT Cheese Rolls in town.
+            </p>
+
+            <div class="hero-actions">
+                <a class="btn btn-primary" href="#menu">Explore Our Menu →</a>
+                <a class="btn btn-secondary" href="#location">Find Our Location</a>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/TYnapaybyAdz"
+                   target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+
+                <a href="https://www.tiktok.com/@tynapaybyadz?_r=1&_t=ZS-9AQkoAnz0du"
+                   target="_blank" rel="noopener noreferrer">TikTok ↗</a>
+
+                <a href="https://www.instagram.com/tynapay_by_adz/"
+                   target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+            </div>
+        </div>
+
+        <div class="hero-art" aria-label="Decorative bread illustration">
+            <span aria-hidden="true">🥐</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="home-gallery-title">
+    <div class="section-head">
+        <span class="kicker">Freshly baked with love</span>
+        <h2 id="home-gallery-title">A Taste of Tynapay</h2>
+        <p>Explore our baked treats and drinks, perfect for everyday moments and special occasions.</p>
+    </div>
+
+    <!-- HOME PICTURE 1 -->
+    <div class="gallery">
+        <figure>
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85"
+                 alt="Freshly baked bread">
+            <figcaption>Freshly Baked Bread</figcaption>
+        </figure>
+
+        <!-- HOME PICTURE 2 -->
+        <figure>
+            <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=900&q=85"
+                 alt="Assorted pastries">
+            <figcaption>Sweet Pastries</figcaption>
+        </figure>
+
+        <!-- HOME PICTURE 3 -->
+        <figure>
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=85"
+                 alt="Coffee drink">
+            <figcaption>Coffee and Beverages</figcaption>
+        </figure>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="section-head">
+        <span class="kicker">Get to know us</span>
+        <h2>A Little Story, Baked with Love</h2>
+        <p>From a home kitchen during the pandemic to pastries and mobile coffee carts for special occasions.</p>
+    </div>
+
+    <div class="about-grid">
+        <article class="about-card">
+            <p class="big-quote">“Breads and coffee made with so much love.”</p>
+            <p>
+                Tynapay By Adz is built on faith, gratitude, resilience,
+                family, and community support.
+            </p>
+            <div class="pill-row">
+                <span class="pill">Faith</span>
+                <span class="pill">Family</span>
+                <span class="pill">Gratitude</span>
+                <span class="pill">Community</span>
+            </div>
+        </article>
+
+        <article class="story-card">
+            <h3>History & Establishment</h3>
+
+            <p>
+                <strong>The Pandemic Inception — April 2020</strong><br>
+                TYnapay by Adz was established during the COVID-19
+                lockdowns in the Philippines. Husband-and-wife team
+                Adrienne Ty, also known as Adz, and Eric Ty began baking
+                at home when their real estate work was affected by the
+                pandemic. Baking became a therapeutic outlet and an
+                alternative source of income.
+            </p>
+
+            <p>
+                <strong>The Brand Name and Identity</strong><br>
+                The name is a wordplay on the Tagalog word
+                <em>tinapay</em>. The letters TY recognize the family
+                surname and express “Thank You” to God and their
+                supporting community. The brand follows the philosophy
+                of making products “with so much love.”
+            </p>
+
+            <p>
+                <strong>The First Product and Early Growth</strong><br>
+                The business began with an order of one dozen Ube Cheese
+                Pandesals for a neighbor. Through word of mouth, the
+                menu expanded to include Classic Cheese Rolls,
+                Cinnamon Rolls with Cream Cheese Glaze, and Coffee Buns.
+            </p>
+
+            <p>
+                <strong>Evolution into Event Catering — 2024 onward</strong><br>
+                The TYnapay + Kape Mobile Event Cart expanded the
+                business into mobile food and beverage catering for
+                corporate events, brand activations, and weddings.
+                The draft lists clients and events involving The
+                Peninsula Manila, Uratex Philippines, GCash, RCBC,
+                DEEPAL, Omoda, and Jaecoo.
+            </p>
+
+            <p>
+                <strong>Founders:</strong> Adrienne Ty (“Adz”) and Eric Ty.
+            </p>
+        </article>
+    </div>
+
+    <div class="values-grid">
+        <article class="value-card">
+            <h3>Our Mission</h3>
+            <p>
+                To share love with every home and celebration by crafting
+                high-quality breads and pastries made with so much love.
+                Through comforting bakes and mobile espresso carts,
+                the brand aims to unite people, spark joy, and inspire
+                communities.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <h3>Our Vision</h3>
+            <p>
+                To become part of Filipino family traditions and milestones
+                and grow into a trusted specialty event catering partner,
+                sharing faith, gratitude, and hope.
+            </p>
+        </article>
+
+        <article class="value-card">
+            <h3>Core Philosophy</h3>
+            <p>
+                Breads and coffee made with so much love, grounded in
+                faith and gratitude.
+            </p>
+        </article>
+    </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+    <div class="menu-inner">
+        <div class="section-head">
+            <span class="kicker">Made with so much love</span>
+            <h2>Our Menu</h2>
+            <p>Choose a category to explore our breads, pastries, and beverages.</p>
+        </div>
+
+        <!-- FOUR MENU CATEGORY BUTTONS -->
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+            <button class="tab active" type="button" role="tab"
+                    aria-selected="true" data-menu="signature">
+                Top Signature
+            </button>
+            <button class="tab" type="button" role="tab"
+                    aria-selected="false" data-menu="sweet">
+                Sweet Glazed
+            </button>
+            <button class="tab" type="button" role="tab"
+                    aria-selected="false" data-menu="savory">
+                Savory Selection
+            </button>
+            <button class="tab" type="button" role="tab"
+                    aria-selected="false" data-menu="beverages">
+                Beverages
+            </button>
+        </div>
+
+        <!-- CATEGORY 1 -->
+        <div class="menu-panel active" id="panel-signature" role="tabpanel">
+            <h3 class="menu-category-title">Top Signature</h3>
+            <div class="menu-grid">
+                <article class="menu-item">
+                    <div>
+                      <img src="https://uploads.onecompiler.io/454c9wpbj/1791956844793/classic%20cheese.png" alt="Classic Cheese Roll">
+                        <h4>Classic Cheese Roll</h4>
+                        <p>Box of 8</p>
+                    </div>
+                    <div class="price">₱300</div>
+                </article>
+
+                <article class="menu-item">
+                    <div>
+                      <img src="https://uploads.onecompiler.io/454c9wpbj/1791956875133/ube%20cheese.png" alt="Ube Cheese Roll"
+                        <h4>Ube Cheese Roll</h4>
+                        <p>Box of 8</p>
+                    </div>
+                    <div class="price">₱300</div>
+                </article>
+
+                <article class="menu-item">
+                    <div>
+                      <img src="https://uploads.onecompiler.io/454c9wpbj/1791957092128/mixed%20rolls.jpg" alt="Mixed Cheese Roll"
+                        <h4>Mixed Cheese Roll</h4>
+                        <p>4 Classic and 4 Ube Cheese Rolls · Box of 8</p>
+                    </div>
+                    <div class="price">₱525</div>
+                </article>
+
+                <article class="menu-item">
+                    <div>
+                      <img src="https://uploads.onecompiler.io/454c9wpbj/1791956883470/ube%20pandesal.png" alt="Ube Cheese Pandesal"
+                        <h4>Ube Cheese Pandesal</h4>
+                        <p>Per batch/package</p>
+                    </div>
+                    <div class="price">Ask for price</div>
+                </article>
+            </div>
+        </div>
+
+        <!-- CATEGORY 2 -->
+        <div class="menu-panel" id="panel-sweet" role="tabpanel" hidden>
+            <h3 class="menu-category-title">Sweet Glazed</h3>
+            <div class="menu-grid">
+                <article class="menu-item">
+                    <div>
+                      <img src="https://uploads.onecompiler.io/454c9wpbj/1791956889472/classic%20cinnamon.png" alt="CLassic Cinnamon Rolls"
+                        <h4>Classic Cinnamon Rolls</h4>
+                        <p>With cream cheese glaze · Box of 4 =₱300 </p>
+                        <p>With cream cheese glaze · Box of 6 = ₱440</p>
+                        <p>With cream cheese glaze . Box of 9 = ₱650</p>
+                    </div>
+                    <div class="price">₱300-₱650</div>
+                     </article>
+            </div>
+        </div>
+              
+
+        <!-- CATEGORY 3 -->
+        <div class="menu-panel" id="panel-savory" role="tabpanel">
+  <h3 class="menu-category-title">Savory Selection</h3>
+  <div class="menu-grid">
+    <article class="menu-item">
+      <div>
+<img src="https://uploads.onecompiler.io/454c9wpbj/1791956895015/artisan%20loaf.png" alt="Artisan Sourdough Focaccia">
+     <h4>Artisan Sourdough Foccacia</h4>
+</div>
+      <div class="price">₱200</div>
+    </article>
+
+  </div>
+</div>
+
+        <!-- CATEGORY 4 -->
+        <div class="menu-panel" id="panel-beverages" role="tabpanel" hidden>
+            <h3 class="menu-category-title">Beverages</h3>
+
+            <h4>Hot & Iced Coffee</h4>
+            <div class="menu-grid">
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/1791956903481/ice%20americano.png" alt="Americano"
+                
+                  </div>
+                    <div><h4>Americano</h4><p>16 oz </p>
+                    </div>
+                    <div class="price">₱59 / ₱69</div>
+                    <p>Hot Americano = ₱59</p>
+                    <p>Iced Americano = ₱69</p>
+                </article>
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/1791956910777/cafe%20latte.png" alt="Cafe Latte"
+                  </div>
+                    <div><h4>Café Latte</h4><p>16 oz/ 22 oz</p>
+                    </div>
+                  
+                    <div class="price">₱79 / ₱89</div>
+                    <p>16 oz Hot Cafe Latte = ₱79</p>
+                    <p>22 oz Hot Cafe Latte = ₱89</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/1791956916391/cappucino.png" alt="Cappucino"
+                  </div>
+                    <div><h4>Cappuccino</h4><p>16 oz/22 oz</p></div>
+                    <div class="price">₱79 / ₱89</div>
+                    <p>16 oz Cappucino = ₱79</p>
+                    <p>22 oz Cappucino = ₱89</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/1791956923224/spanish%20latte.png" alt="Spanish Latte"
+                  </div>
+                    <div><h4>Spanish Latte</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱89 / ₱99</div>
+                    <p>16 oz Spanish Latte = ₱89</p>
+                    <p>22 oz Spanish Latte = ₱99</p>
+                </article>
+            </div>
+          
+
+            <h4>Non-Coffee</h4>
+            <div class="menu-grid">
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/Choco%20Hazel.png" alt="Choco Hazelnut Milk"
+                  </div>
+                    <div><h4>Choco Hazelnut Milk</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱79 / ₱99</div>
+                    <p>16 oz Choco Hazelnut Milk = ₱79</p>
+                    <p>22 oz Choco Hazelnut Milk = ₱99</p>
+                </article>
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/straw%20milk.png" alt="Strawberry Milk"
+                  </div>
+                    <div><h4>Strawberry Milk</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱89 / ₱109</div>
+                    <p>16 oz Strawberry Milk = ₱89</p>
+                    <p>22 oz Strawberry Milk = ₱109</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/choco%20rich.png" alt="Choco-Rich"
+                  </div>
+                    <div><h4>Choco-Rich</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱79 / ₱99</div>
+                    <p>16 oz Choco-Rich = ₱79</p>
+                    <p>22 oz Choco-Rich = ₱99</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/matcha.png" alt="Matcha Latte"
+                  </div>
+                    <div><h4>Matcha Latte</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱89 / ₱109</div>
+                    <p>16 oz Matcha Latte = ₱89</p>
+                    <p>22 oz Matcha Latte = ₱109</p>
+                </article>
+
+            </div>
+
+            <h4>Milk Tea</h4>
+            <div class="menu-grid">
+                <article class="menu-item">
+                 <div>
+                  <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/taro.png" alt="Taro Milk Tea"
+                 </div>
+                            <div><h4>Taro Milk Tea</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱59 / ₱69</div>
+                    <p>16 oz Taro Milk Tea = ₱59</p>
+                    <p>22 oz Taro Milk Tea = ₱69</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/wintermelon.png" alt="Wintermelon Milk Tea"
+                  </div>
+                    <div><h4>Wintermelon Milk Tea</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱59 / ₱69</div>
+                    <p>16 oz Wintermelon Milk Tea = ₱59</p>
+                    <p>22 oz Wintermelon Milk Tea = ₱69</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/Thai.png" alt="Thai Milk Tea"
+                  </div>
+                    <div><h4>Thai Milk Tea</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱69 / ₱79</div>
+                    <p>16 oz Thai Milk Tea = ₱69</p>
+                    <p>22 oz Thai Milk Tea = ₱79</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/okinawa.png" alt="Okinawa Milk Tea"
+                  </div>
+                    <div><h4>Okinawa Milk Tea</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱69 / ₱79</div>
+                    <p>16 oz Okinawa Milk Tea = ₱69</p>
+                    <p>22 oz Okinawa Milk Tea = ₱79</p>
+                </article>
+            </div>
+
+            <h4>Fruit Tea</h4>
+            <div class="menu-grid">
+                
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/watermelon.png" alt="Watermelon"
+                  </div>
+                    <div><h4>Watermelon</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱49 / ₱59</div>
+                    <p>16 oz Watermelon = ₱49</p>
+                    <p>22 oz Watermelon = ₱59</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/lemon.png" alt="Lemon"
+                  </div>
+                    <div><h4>Lemon</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱49 / ₱59</div>
+                    <p>16 oz Lemon = ₱49</p>
+                    <p>22 oz Lemon = ₱59</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/lychee.png" alt="Lychee"
+
+                  </div>
+                    <div><h4>Lychee</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱49 / ₱59</div>
+                    <p>16 oz Lychee = ₱49</p>
+                    <p>22 oz Lychee = ₱59</p>
+                </article>
+
+                <article class="menu-item">
+                  <div>
+                    <img src="https://uploads.onecompiler.io/454c9wpbj/45655rgq2/green%20app.png" alt="Green Apple"
+                  </div>
+                    <div><h4>Green Apple</h4><p>16 oz / 22 oz</p></div>
+                    <div class="price">₱49 / ₱59</div>
+                    <p>16 oz Green Apple = ₱49</p>
+                    <p>22 oz Green Apple = ₱59</p>
+                </article>
+            </div>
+        </div>
+
+        <p class="menu-note">
+            Prices are based on the supplied draft. Please confirm
+            current prices and product availability before publishing.
+        </p>
+    </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section" id="location">
+    <div class="section-head">
+        <span class="kicker">Come find us</span>
+        <h2>Location & Service Areas</h2>
+        <p>Pickup, delivery, and mobile catering information.</p>
+    </div>
+
+    <!-- LOCATION PICTURE 1 -->
+    <div class="location-gallery">
+        <figure>
+            <img src="https://uploads.onecompiler.io/454c9wpbj/1791955618784/294392628_411140461037064_5218263672356578325_n.jpg"
+                 alt="Illustrative storefront">
+            <figcaption>Store Profile</figcaption>
+        </figure>
+
+        <!-- LOCATION PICTURE 2 -->
+        <figure>
+            <img src="https://uploads.onecompiler.io/454c9wpbj/1791955612558/fron%20phot%20img%20for%20loc.png"
+                 alt="Illustrative event catering venue">
+            <figcaption>Events and Catering</figcaption>
+        </figure>
+    </div>
+
+    <div class="location-grid">
+        <article class="info-card">
+          <div>
+            <img src="https://uploads.onecompiler.io/454c9wpbj/1791955173583/Loc%201.png" alt="Baking Base"
+          </div>
+            <h3>Baking Base</h3>
+            <p>Boundary of Cainta, Rizal, and Pasig City.</p>
+        </article>
+
+        <article class="info-card">
+          <div>
+            <img src="https://uploads.onecompiler.io/454c9wpbj/1791955288408/Loc%202.png" alt="Pick-Up Address"
+          </div>
+            <h3>Pick-Up Address</h3>
+            <p>5B Century Compound, Project 4, Quezon City.</p>
+        </article>
+
+        <article class="info-card">
+            <h3>Delivery Service Scope</h3>
+            <p>All of Metro Manila and select nearby Rizal borders via third-party apps.</p>
+        </article>
+
+        <article class="info-card">
+            <h3>Catering Cart Coverage</h3>
+            <p>Mobile service across Luzon, deployed directly to your chosen event venue.</p>
+        </article>
+    </div>
+
+    <p class="notice">
+        Please confirm pickup instructions and availability with the
+        business before visiting. The pictures above are illustrative
+        placeholders, not verified photographs of the actual locations.
+    </p>
+</section>
+
+<!-- NEWS -->
+<section class="section" id="news">
+    <div class="section-head">
+        <span class="kicker">Press and media</span>
+        <h2>News & Features</h2>
+        <p>Media links listed in the Tynapay By Adz draft.</p>
+    </div>
+
+    <div class="news-grid">
+        <article class="info-card">
+            <h3>Rappler — Culture Desk</h3>
+            <p>Sweet Picks: pastries feature, 2021.</p>
+            <a class="btn btn-secondary"
+               href="https://www.rappler.com/culture-desk/food-drinks/sweet-picks-pastries-october-24-30-2021/"
+               target="_blank" rel="noopener noreferrer">Read Feature ↗</a>
+        </article>
+
+        <article class="info-card">
+            <h3>TV5 — Gud Morning Kapatid</h3>
+            <p>TV feature listed for 2024–2025.</p>
+            <a class="btn btn-secondary"
+               href="https://www.youtube.com/watch?v=ta8JFElaht8"
+               target="_blank" rel="noopener noreferrer">Watch Video ↗</a>
+        </article>
+
+        <article class="info-card">
+            <h3>IBC TV13 — TrezeMornings</h3>
+            <p>Media feature listed for 2026.</p>
+            <a class="btn btn-secondary"
+               href="https://www.facebook.com/watch/?v=1385147893564035"
+               target="_blank" rel="noopener noreferrer">Watch Feature ↗</a>
+        </article>
+
+        <article class="info-card">
+            <h3>Magic 89.9 — Big Breakfast</h3>
+            <p>Radio feature listed for 2026.</p>
+            <a class="btn btn-secondary"
+               href="https://www.facebook.com/Magic89.9/posts/from-a-pandemic-panic-project-to-every-familys-favorite-baked-goods-homegrown-ar/1515189800644259/"
+               target="_blank" rel="noopener noreferrer">View Post ↗</a>
+        </article>
+    </div>
+</section>
+
+<!-- FRANCHISE -->
+<section class="section" id="franchise">
+    <div class="section-head">
+        <span class="kicker">Business inquiries</span>
+        <h2>Franchise Now</h2>
+        <p>Interested in becoming a franchise partner?</p>
+    </div>
+
+    <div class="about-grid">
+        <article class="about-card">
+            <h3>Grow with Tynapay By Adz</h3>
+            <p>
+                We plan to develop a PHP-based franchise database system
+                for people interested in franchising Tynapay By Adz.
+                The system will help applicants submit their information
+                and allow the team to organize, review, and track
+                franchise inquiries in one place.
+            </p>
+
+            <h3>Planned Features</h3>
+            <ul>
+                <li>Franchise inquiry form</li>
+                <li>Applicant information records</li>
+                <li>Application status tracking</li>
+                <li>Admin view for managing submissions</li>
+            </ul>
+        </article>
+
+        <article class="form-card">
+            <h3>Apply / Inquire</h3>
+
+            <!-- Requires franchise.php and a configured PHP/MySQL server -->
+            <form action="franchise.php" method="post">
+                <label for="fr-name">Full Name *</label>
+                <input id="fr-name" name="name" type="text"
+                       maxlength="150" required>
+
+                <label for="fr-email">Email Address *</label>
+                <input id="fr-email" name="email" type="email"
+                       maxlength="190" required>
+
+                <label for="fr-phone">Contact Number</label>
+                <input id="fr-phone" name="phone" type="tel"
+                       maxlength="40">
+
+                <label for="fr-city">Preferred City / Area</label>
+                <input id="fr-city" name="city" type="text"
+                       maxlength="150">
+
+                <label for="fr-investment">Estimated Investment Range</label>
+                <select id="fr-investment" name="investment">
+                    <option value="">Select an option</option>
+                    <option>Still exploring</option>
+                    <option>Below ₱100,000</option>
+                    <option>₱100,000–₱300,000</option>
+                    <option>₱300,000 and above</option>
+                </select>
+
+                <label for="fr-details">Message / Business Background</label>
+                <textarea id="fr-details" name="details"
+                          maxlength="3000"></textarea>
+
+                <label class="checkbox-label">
+                    <input type="checkbox" name="privacy" value="yes" required>
+                    <span>I have read the privacy notice and agree to the use of my information to respond to this inquiry.</span>
+                </label>
+
+                <p class="privacy">
+                    Data Privacy Notice: The information submitted is
+                    intended to respond to franchise inquiries and
+                    manage applications. Before collecting real
+                    applications, the business must approve and publish
+                    its privacy policy, retention practices, contact
+                    details, security measures, and applicable data-subject
+                    rights under the Philippine Data Privacy Act.
+                </p>
+
+                <button class="btn btn-primary" type="submit">
+                    Submit Inquiry
+                </button>
+            </form>
+        </article>
+    </div>
+</section>
+
+<!-- FEEDBACK -->
+<section class="section" id="feedback">
+    <div class="section-head">
+        <span class="kicker">Your opinion matters</span>
+        <h2>Feedback & Suggestions</h2>
+        <p>Share your experience and help us improve our products and services.</p>
+    </div>
+
+    <div class="form-card">
+        <!-- Requires feedback.php and a configured PHP/MySQL server -->
+        <form action="feedback.php" method="post">
+            <label for="fb-name">Name *</label>
+            <input id="fb-name" name="name" type="text"
+                   maxlength="150" required>
+
+            <label for="fb-email">Email Address *</label>
+            <input id="fb-email" name="email" type="email"
+                   maxlength="190" required>
+
+            <label for="fb-category">Feedback Category *</label>
+            <select id="fb-category" name="category" required>
+                <option value="">Choose a category</option>
+                <option>Product</option>
+                <option>Customer Service</option>
+                <option>Delivery</option>
+                <option>Event Catering</option>
+                <option>Website</option>
+                <option>Other</option>
+            </select>
+
+            <label for="fb-rating">Rating *</label>
+            <select id="fb-rating" name="rating" required>
+                <option value="">Select your rating</option>
+                <option value="5">5 — Excellent</option>
+                <option value="4">4 — Very Good</option>
+                <option value="3">3 — Good</option>
+                <option value="2">2 — Needs Improvement</option>
+                <option value="1">1 — Poor</option>
+            </select>
+
+            <label for="fb-comments">Comments & Suggestions</label>
+            <textarea id="fb-comments" name="comments"
+                      maxlength="3000"
+                      placeholder="Share your feedback here..."></textarea>
+
+            <label class="checkbox-label">
+                <input type="checkbox" name="privacy" value="yes" required>
+                <span>I agree that my information may be used to process this feedback.</span>
+            </label>
+
+            <p class="privacy">
+                Data Privacy Notice: Information is intended to help
+                process feedback and improve service. Before collecting
+                real submissions, publish an approved privacy policy
+                explaining the purpose of collection, retention, security,
+                contact information, and applicable data-subject rights.
+            </p>
+
+            <button class="btn btn-primary" type="submit">
+                Send Feedback
+            </button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <strong>TYNAPAY BY ADZ</strong>
+    <p>Family's favorite online bakeshop — made with so much love.</p>
+
+    <p>
+        <a href="https://www.facebook.com/TYnapaybyAdz"
+           target="_blank" rel="noopener noreferrer">Facebook</a> ·
+        <a href="https://www.tiktok.com/@tynapaybyadz?_r=1&_t=ZS-9AQkoAnz0du"
+           target="_blank" rel="noopener noreferrer">TikTok</a> ·
+        <a href="https://www.instagram.com/tynapay_by_adz/"
+           target="_blank" rel="noopener noreferrer">Instagram</a>
+    </p>
+
+    <small>Website project for academic/demo use.</small>
+</footer>
+
+<script>
+/* Mobile navigation */
+const menuToggle = document.getElementById("menuToggle");
+const mainNav = document.getElementById("mainNav");
+
+menuToggle.addEventListener("click", function () {
+    const isOpen = mainNav.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
+
+mainNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+        mainNav.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+    });
+});
+
+/* Four working menu categories */
+const tabs = document.querySelectorAll(".tab");
+const panels = document.querySelectorAll(".menu-panel");
+
+tabs.forEach(function (tab) {
+    tab.addEventListener("click", function () {
+        const category = tab.dataset.menu;
+
+        tabs.forEach(function (item) {
+            item.classList.remove("active");
+            item.setAttribute("aria-selected", "false");
+        });
+
+        panels.forEach(function (panel) {
+            panel.classList.remove("active");
+            panel.hidden = true;
+        });
+
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+
+        const selectedPanel = document.getElementById("panel-" + category);
+        selectedPanel.classList.add("active");
+        selectedPanel.hidden = false;
+    });
+});
+</script>
+
+</body>
+</html>
